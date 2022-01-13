@@ -65,4 +65,12 @@ dependencies {
 
     implementation Libs.rx.rxandroid
     implementation Libs.rx.rxjava
+
+    implementation Libs.dagger.dagger
+    kapt Libs.dagger.dagger_android_processor
+    kapt Libs.dagger.compiler
+
+    implementation Libs.google.gson
+
+
 }

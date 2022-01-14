@@ -17,5 +17,6 @@ class MyApp: Application() {
             .networkModule(NetworkModule())
             .databaseModule(DatabaseModule())
             .build()
+
     }
 }

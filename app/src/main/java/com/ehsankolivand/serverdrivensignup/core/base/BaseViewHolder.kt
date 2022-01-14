@@ -1,4 +1,4 @@
-package com.ehsankolivand.serverdrivensignup.core
+package com.ehsankolivand.serverdrivensignup.core.base
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding

@@ -1,4 +1,4 @@
-package com.ehsankolivand.serverdrivensignup.core
+package com.ehsankolivand.serverdrivensignup.core.base
 
 import android.os.Bundle
 import androidx.annotation.CallSuper

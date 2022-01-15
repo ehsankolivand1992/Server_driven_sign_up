@@ -9,5 +9,6 @@ class DataFormTypeConvertor {
     fun listToJson(value: List<Data>)= Gson().toJson(value)
 
     @TypeConverter
-    fun JsonToList(value:String)= Gson().fromJson(value,ArrayList<Data>()::class.java)
+    fun JsonToList(value:String)
+    = Gson().fromJson(value,ArrayList<Data>()::class.java)
 }

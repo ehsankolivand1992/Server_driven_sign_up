@@ -4,12 +4,13 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.ehsankolivand.serverdrivensignup.dataSource.models.ModelForms
+import com.ehsankolivand.serverdrivensignup.dataSource.models.RemoteFormModel
 
 
 @Database(entities = [
-    ModelForms::class
+    RemoteFormModel::class
 ],
-    version = 1,
+    version = 2,
     exportSchema = true)
 @TypeConverters(DataFormTypeConvertor::class)
 abstract class FormDatabase: RoomDatabase() {

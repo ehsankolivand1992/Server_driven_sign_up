@@ -6,6 +6,8 @@ import com.ehsankolivand.serverdrivensignup.core.di.DaggerAppComponent
 import com.ehsankolivand.serverdrivensignup.core.di.DatabaseModule
 import com.ehsankolivand.serverdrivensignup.core.di.NetworkModule
 
+
+
 class MyApp: Application() {
 
     lateinit var component: AppComponent

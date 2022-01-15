@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -29,15 +30,47 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation Libs.androidx.core
+    implementation Libs.androidx.appcompat
+    implementation Libs.androidx.material
+    implementation Libs.androidx.constraintlayout
+    testImplementation Libs.androidx.junit
+    androidTestImplementation Libs.androidx.androidxext
+    androidTestImplementation Libs.androidx.espresso
+
+
+
+    implementation Libs.okHttp.main
+    implementation Libs.okHttp.logging_interceptor
+    testImplementation Libs.okHttp.mockWebServer
+
+    implementation Libs.room.ktx
+    kapt Libs.room.compiler
+    implementation Libs.room.runtime
+    testImplementation Libs.room.test
+
+
+    implementation Libs.navigation.navigationFragment
+    implementation Libs.navigation.navigation
+
+    implementation Libs.rx.rxandroid
+    implementation Libs.rx.rxjava
+
+    implementation Libs.dagger.dagger
+    kapt Libs.dagger.dagger_android_processor
+    kapt Libs.dagger.compiler
+
+    implementation Libs.google.gson
+
+
 }

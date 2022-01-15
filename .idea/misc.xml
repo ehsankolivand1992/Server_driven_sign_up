@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/chevron_right.xml" value="0.17407407407407408" />
+        <entry key="app/src/main/res/drawable-v24/ic_img_header_one.xml" value="0.17407407407407408" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout/rv_item_checklist.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/rv_item_edittext.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/rv_item_radiobutton.xml" value="0.15070921985815602" />

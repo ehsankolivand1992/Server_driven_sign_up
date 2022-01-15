@@ -1,5 +1,6 @@
 package com.ehsankolivand.serverdrivensignup.dataSource.repository
 
+import android.util.Log
 import com.ehsankolivand.serverdrivensignup.core.util.getFormData
 import com.ehsankolivand.serverdrivensignup.dataSource.local.FormDao
 import com.ehsankolivand.serverdrivensignup.dataSource.models.ModelForms
@@ -12,12 +13,24 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.Call
 import javax.inject.Inject
 
-class FormRepositoryImp @Inject constructor(private val call: Call,private val formDao: FormDao) : FormRepository {
+class FormRepositoryImp @Inject constructor(private val call: Call,private val formDao: FormDao)
+    : FormRepository {
+    val Tag = "Repository"
 
 
     override fun fetchData() = catchData()
 
 
+    override fun update(newForm: RemoteFormModel)
+    {
+        Observable.create<Unit> {
+            formDao.updateFormData(newForm)
+        }.subscribeOn(Schedulers.io())
+            .observeOn(Schedulers.io())
+            .subscribe {
+                Log.i(Tag,"Database Updated")
+            }
+    }
 
 
     //The ViewModel does not need to know where the data is coming from.
@@ -43,6 +56,7 @@ class FormRepositoryImp @Inject constructor(private val call: Call,private val f
             formDao.insertFormData(it)
             return@map formDao.getFormData()
         }.observeOn(AndroidSchedulers.mainThread())
+
 
 
 }

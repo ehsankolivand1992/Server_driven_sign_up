@@ -1,9 +1,6 @@
 package com.ehsankolivand.serverdrivensignup.dataSource.local
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.ehsankolivand.serverdrivensignup.dataSource.models.ModelForms
 import com.ehsankolivand.serverdrivensignup.dataSource.models.RemoteFormModel
 
@@ -15,5 +12,9 @@ abstract class FormDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     abstract fun insertFormData(modelForms: RemoteFormModel)
+
+
+    @Update
+    abstract fun updateFormData(modelForms: RemoteFormModel)
 
 }

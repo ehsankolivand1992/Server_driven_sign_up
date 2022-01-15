@@ -5,5 +5,5 @@ data class Data(
     val name: String,
     val type: String,
     val values: Values,
-    val answer:String
+    var answer:String
 )

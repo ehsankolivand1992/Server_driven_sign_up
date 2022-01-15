@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 data class RemoteFormModel(
     @PrimaryKey(autoGenerate = true)
     val id:Long,
-    val bodyMessage:String
+    var bodyMessage:String
 )

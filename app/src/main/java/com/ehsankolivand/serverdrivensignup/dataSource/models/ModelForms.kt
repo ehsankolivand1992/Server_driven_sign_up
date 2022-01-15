@@ -5,9 +5,7 @@ import androidx.room.PrimaryKey
 
 
 data class ModelForms(
-    @PrimaryKey(autoGenerate = true)
-    val id:Long,
-    val currentPage: Int,
-    val data: List<Data>,
-    val totalPage: Int
+    val currentPage: Int=0,
+    val data: MutableList<Data> = mutableListOf(),
+    val totalPage: Int=0
 )

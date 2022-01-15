@@ -5,21 +5,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ehsankolivand.serverdrivensignup.core.base.BaseViewHolder
 import com.ehsankolivand.serverdrivensignup.dataSource.models.Data
+import com.ehsankolivand.serverdrivensignup.dataSource.models.ModelForms
 import com.ehsankolivand.serverdrivensignup.ui.adapter.view_holders.ViewHolderFactory
 import com.ehsankolivand.serverdrivensignup.ui.adapter.view_holders.contract.Enum_ItemType
 import com.ehsankolivand.serverdrivensignup.ui.adapter.view_holders.contract.OnEditTextChanged
 
 
-class FormRecyclerViewAdapter constructor(
-    private val context: Context,
-    private val onEditTextChanged: OnEditTextChanged
-)
-    : RecyclerView.Adapter<BaseViewHolder>() {
+class FormRecyclerViewAdapter(private val context: Context)
+    :RecyclerView.Adapter<BaseViewHolder>() {
 
-
-     var datalist = listOf<Data>()
+    var dataHolder = ModelForms()
+    var datalist = ModelForms()
         set(value) {
             field = value
+            dataHolder= value
             notifyDataSetChanged()
         }
 
@@ -29,16 +28,26 @@ class FormRecyclerViewAdapter constructor(
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        holder.bind(datalist[position],onEditTextChanged)
+        holder.bind(datalist.data[position], {position:Int,data:Data ->DataChanged(position,data) },position)
     }
 
     override fun getItemCount(): Int {
 
-        return datalist.size
+        return datalist.data.size
     }
+
 
     override fun getItemViewType(position: Int): Int {
 
-        return Enum_ItemType.valueOf(datalist[position].type.uppercase()).ordinal
+        return Enum_ItemType.valueOf(datalist.data[position].type.uppercase()).ordinal
     }
+
+
+
+    private fun DataChanged(position: Int,data: Data)
+    {
+        dataHolder.data[position] = data
+    }
+
+
 }

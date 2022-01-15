@@ -5,6 +5,9 @@ import com.ehsankolivand.serverdrivensignup.dataSource.models.RemoteFormModel
 import io.reactivex.rxjava3.core.Observable
 
 interface FormRepository {
+
     fun fetchData(): Observable<RemoteFormModel>
+
+    fun update(newForm: RemoteFormModel)
 
 }

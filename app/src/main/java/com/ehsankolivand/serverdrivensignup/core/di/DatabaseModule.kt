@@ -9,12 +9,12 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class DatabaseModule {
+class DatabaseModule constructor(val application: Application){
 
 
     @Provides
     @Singleton
-    fun provideDatabase(application: Application): FormDatabase =
+    fun provideDatabase(): FormDatabase =
         Room.databaseBuilder(application, FormDatabase::class.java, "form_db")
             .fallbackToDestructiveMigration()
             .build()

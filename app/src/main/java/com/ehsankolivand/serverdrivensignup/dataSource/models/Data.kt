@@ -4,5 +4,6 @@ data class Data(
     val isRequired: Boolean,
     val name: String,
     val type: String,
-    val values: Values
+    val values: Values,
+    val answer:String
 )

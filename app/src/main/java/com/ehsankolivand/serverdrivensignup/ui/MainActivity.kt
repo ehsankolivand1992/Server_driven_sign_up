@@ -1,6 +1,7 @@
-package com.ehsankolivand.serverdrivensignup
+package com.ehsankolivand.serverdrivensignup.ui
 
 import android.os.Bundle
+import com.ehsankolivand.serverdrivensignup.MyApp
 import com.ehsankolivand.serverdrivensignup.core.base.BaseActivity
 import com.ehsankolivand.serverdrivensignup.databinding.ActivityMainBinding
 

@@ -1,6 +1,6 @@
 package com.ehsankolivand.serverdrivensignup.core.di
 
-import com.ehsankolivand.serverdrivensignup.MainActivity
+import com.ehsankolivand.serverdrivensignup.ui.MainActivity
 import dagger.Component
 import javax.inject.Singleton
 

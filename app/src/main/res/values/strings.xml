@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Server Driven SignUp</string>
+    <string name="title_activity_delete_main">DeleteMainActivity</string>
+    <string name="hello">Hello</string>
 </resources>

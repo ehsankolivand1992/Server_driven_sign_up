@@ -3,8 +3,7 @@ package com.ehsankolivand.serverdrivensignup.dataSource.local
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.ehsankolivand.serverdrivensignup.dataSource.models.ModelForms
-import com.ehsankolivand.serverdrivensignup.dataSource.models.RemoteFormModel
+import com.ehsankolivand.serverdrivensignup.dataSource.remote.RemoteFormModel
 
 
 @Database(entities = [

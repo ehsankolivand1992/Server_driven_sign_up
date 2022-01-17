@@ -5,16 +5,15 @@ import android.content.Context
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ehsankolivand.serverdrivensignup.MyApp
 import com.ehsankolivand.serverdrivensignup.core.base.BaseActivity
-import com.ehsankolivand.serverdrivensignup.core.util.Datavalidation
 import com.ehsankolivand.serverdrivensignup.dataSource.models.ModelForms
-import com.ehsankolivand.serverdrivensignup.dataSource.models.RemoteFormModel
+import com.ehsankolivand.serverdrivensignup.dataSource.remote.RemoteFormModel
 import com.ehsankolivand.serverdrivensignup.databinding.ActivityMainBinding
 import com.ehsankolivand.serverdrivensignup.ui.adapter.FormRecyclerViewAdapter
 import com.google.gson.Gson
+import io.reactivex.rxjava3.disposables.Disposable
 import javax.inject.Inject
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -26,6 +25,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     lateinit var formPage: ModelForms
     lateinit var newForm: RemoteFormModel
+    lateinit var de:Disposable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     @SuppressLint("ClickableViewAccessibility")
     fun fetchData() {
 
-        mainViewModel.fetchData().subscribe {
+       de = mainViewModel.fetchData().subscribe {
             newForm = it
             val modelforms: ModelForms =
                 Gson().fromJson(newForm.bodyMessage, ModelForms::class.java)
@@ -82,5 +82,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         super.onPause()
         newForm.bodyMessage = Gson().toJson(formAdapter.dataHolder)
         mainViewModel.updateDatabase(newForm)
+        de.dispose()
     }
 }

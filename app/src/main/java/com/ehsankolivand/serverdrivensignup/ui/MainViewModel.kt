@@ -4,9 +4,8 @@ import androidx.lifecycle.ViewModel
 import com.ehsankolivand.serverdrivensignup.core.util.Datavalidation
 import com.ehsankolivand.serverdrivensignup.dataSource.local.FormDao
 import com.ehsankolivand.serverdrivensignup.dataSource.models.Data
-import com.ehsankolivand.serverdrivensignup.dataSource.models.RemoteFormModel
+import com.ehsankolivand.serverdrivensignup.dataSource.remote.RemoteFormModel
 import com.ehsankolivand.serverdrivensignup.dataSource.repository.FormRepositoryImp
-import com.ehsankolivand.serverdrivensignup.dataSource.repository.contract.FormRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -27,7 +26,7 @@ class MainViewModel @Inject constructor(private val repository: FormRepositoryIm
 
 
     fun fetchData() =
-        repository.fetchData()
+        repository.fetchData(0)
 
 
     fun updateDatabase(newForm: RemoteFormModel)

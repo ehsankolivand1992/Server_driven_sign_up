@@ -1,7 +1,6 @@
 package com.ehsankolivand.serverdrivensignup.core.di
 
 import com.ehsankolivand.serverdrivensignup.BuildConfig
-import com.ehsankolivand.serverdrivensignup.core.util.URL.BASE_URL
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -26,17 +25,6 @@ class NetworkModule {
             .build()
     }
 
-    @Provides
-    @Singleton
-    fun provideOkhttpRequest() = Request.Builder()
-        .url(BASE_URL)
-        .build()
-
-
-    @Provides
-    @Singleton
-    fun provideOkhttpResponse(okHttpClient: OkHttpClient, request: Request) =
-        okHttpClient.newCall(request)
 
 
 }

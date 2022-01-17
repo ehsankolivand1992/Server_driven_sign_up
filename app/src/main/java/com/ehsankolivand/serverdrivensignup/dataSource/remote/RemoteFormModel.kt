@@ -1,4 +1,4 @@
-package com.ehsankolivand.serverdrivensignup.dataSource.models
+package com.ehsankolivand.serverdrivensignup.dataSource.remote
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -7,5 +7,7 @@ import androidx.room.PrimaryKey
 data class RemoteFormModel(
     @PrimaryKey(autoGenerate = true)
     val id:Long,
+    val pageCount:Int,
+    val pageNumber:Int,
     var bodyMessage:String
 )
